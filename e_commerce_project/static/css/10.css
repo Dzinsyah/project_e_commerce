@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+.blue {
+    background-color: #37ccc2 !important;
+}
+
+.cwhite {
+    color: white;
+}
+
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font75 {
+    font-size: 75px;
+}
+
+.bl {
+    color: #0eafa4;
+}
+
+.top15 {
+    position: relative;
+    top: 70px;
+}
+
+.backblack {
+    background-color: black !important;
+}
+
+.margin5 {
+    margin: 5px;
+}
+
+.bwhite {
+    border-color: white;
+}
+
+.top60 {
+    position: relative;
+    top: 40px;
+}
+
+.h70px {
+    height: 70px;
+}
+
+.h30 {
+    font-size: 22;
+    position: relative;
+    top: 20px;
+}
+
+.h40 {
+    height: 35px;
+    width: 35px;
+}
+
+.top4 {
+    position: relative;
+    top: 6px;
+}
+
+.search {
+    width: 450px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.buttonsearch {
+    height: 35px;
+    width: 50px;
+    top: 4px;
+    background-color: #0eafa4;
+}
+
+
+.h22 {
+    height: 35px;
+    position: relative;
+    top: 4px;
+    border-radius: 5%;
+}
+
+.font25 {
+    font-size: 25;
+    position: relative;
+    top: 15px;
+}
+
+.logo1 {
+    height: 150px;
+    width: 135px;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.paddingtop15 {
+    padding-top: 15px;
+}
+
+.cart {
+    height: 50px;
+}
+
+.marginr20 {
+    margin-right: 20px;
+}
+
+.paddingtop20 {
+    padding-top: 15px;
+}
+
+.borderradius10 {
+    border-radius: 5%;
+}
+
+@media screen and (max-width: 767px) {
+    .search {
+        width: 200px;
+    }
+}
+
+.borderproduct {
+
+    border-radius: 5%;
+    box-shadow: 1px 8px 10px 5px RGBA(0, 0, 0, .16);
+    padding-top: 20px;
+}
+
+.imgproduct {
+    height: 247px;
+    width: 177px;
+}
+
+.margin20 {
+    margin: 35px 50px;
+}
+
+@media screen and (max-width: 767px) {
+    .imgproduct {
+        height: 175px;
+        width: 110px;
+    }
+}
+
+.margin20px {
+    margin: 20px;
+}
+
+/* searchbutton */
+form.find input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.find button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    height: 48px;
+}
+
+form.find button:hover {
+    background: #0b7dda;
+}
+
+form.find::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.marginauto {
+    margin: auto;
+}
+
+.paddingtop30 {
+    padding-top: 30px;
+}
+
+/* navbar */
+.mainmenubtn {
+    background-color: black !important;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.mainmenubtn:hover {
+    background-color: blue !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-child {
+    display: none;
+    background-color: black;
+    min-width: 200px;
+}
+
+.dropdown-child a {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-child {
+    display: block;
+}
+
+.margindown14 {
+    margin-bottom: 14px;
+}
+
+/* signin */
+
+.signin {
+    height: 100%;
+}
+
+.sign {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin input[type="textarea"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-register input[type="telephone"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.form-register input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-register input[type="address"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-register input[type="password"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-register input[type="username"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-register {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-register .checkbox {
+    font-weight: 400;
+}
+
+.form-register .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-register .form-control:focus {
+    z-index: 2;
+}
+
+.h350px{
+    height: 350px;
+}
