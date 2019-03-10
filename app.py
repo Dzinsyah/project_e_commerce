@@ -49,5 +49,9 @@ def checkout():
 def category():
     return render_template('category.html')
 
+@app.route('/addProduct')
+def addproduct():
+    return render_template('add_product.html')
+
 if __name__ == '__main__':
     app.run(debug = True)
