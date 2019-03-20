@@ -5,9 +5,9 @@ from flask_restful import fields
 class Carts(db.Model):
 	__tablename__ = "cart"
 	cart_id = db.Column(db.Integer, primary_key = True, autoincrement = True, unique = True)
-	 = db.Column(db.String(200), unique = True)
-	email = db.Column(db.String(100), unique = True)
-	password = db.Column(db.String(100))
+	name_product = db.Column(db.String(200), unique = True)
+	price = db.Column(db.String(100), unique = True)
+	qty  = db.Column(db.String(100))
 	address = db.Column(db.String(200))
 	telephone = db.Column(db.String(100))
 	status_admin = db.Column(db.String(20))

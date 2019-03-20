@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 app.config['APP_DEBUG'] = True
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:diar0403@localhost:3306/rest_svc'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bismillah@127.0.0.1:3306/portofolio'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dzinmariadb:bismillah@172.31.37.180/portofolio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['JWT_SECRET_KEY'] = 'NSniSjOIJoijSIjaosJOas'
