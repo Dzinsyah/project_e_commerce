@@ -7,16 +7,20 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['APP_DEBUG'] = True
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:diar0403@localhost:3306/rest_svc'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bismillah@127.0.0.1:3306/portofolio'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dzinmariadb:bismillah@172.31.37.180/portofolio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['JWT_SECRET_KEY'] = 'NSniSjOIJoijSIjaosJOas'
-app.config['JWI_ACCESS_TOKEN_EXPIRES'] = timedelta(days = 1)
+# app.config['JWI_ACCESS_TOKEN_EXPIRES'] = timedelta(days = 1)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=1)
 
 jwt = JWTManager(app)
 
@@ -61,12 +65,17 @@ from blueprints.product.resources import bp_product
 from blueprints.user.resources import bp_user
 from blueprints.login import bp_login
 from blueprints.public import bp_public
-
+from blueprints.carts.resources import bp_cart
+from blueprints.feedback.resources import bp_feedback
+from blueprints.transaction.resources import bp_transaction
 
 # app.register_blueprint(bp_venue, url_prefix = '/venue')
 app.register_blueprint(bp_product, url_prefix = '/user/product')
 app.register_blueprint(bp_user, url_prefix = '/user/register')
 app.register_blueprint(bp_login, url_prefix = '/user/login')
 app.register_blueprint(bp_public, url_prefix = '/public/product')
+app.register_blueprint(bp_cart, url_prefix = '/user/cart')
+app.register_blueprint(bp_feedback, url_prefix = '/user/feedback')
+app.register_blueprint(bp_transaction, url_prefix = '/user/transaction')
 
 db.create_all()

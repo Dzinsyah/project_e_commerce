@@ -34,16 +34,16 @@ class UserResources(Resource):
                 rows = []
                 for row in qry.limit(args['rp']).offset(offset).all():
                     rows.append(marshal(row, Users.response_fields))
-                return rows, 200, { 'Content-Type': 'application/json' }
+                return {"message":"success", "status code":200, "user":rows}, 200, { 'Content-Type': 'application/json' }
 
             else:
                 qry = Users.query.get(user_id)
                 #select *from where id = id
                 if qry is not None:
-                    return marshal(qry, Users.response_fields), 200, { 'Content-Type': 'application/json' }
-                return {'status':'NOT FOUND'}, 404, { 'Content-Type': 'application/json' }
+                    return {"message":"success", "code":200, "user":marshal(qry, Users.response_fields)}, 200, { 'Content-Type': 'application/json' }
+                return {"message":"user not found", "code":404}, 404, { 'Content-Type': 'application/json' }
         else:
-            return {'status':'ACCESS DENIED'}, 404, { 'Content-Type': 'application/json' }
+            return {"message":"ACCESS DENIED, INVALID ADMIN", "code":403}, 403, { 'Content-Type': 'application/json' }
 
     def post(self,user_id = None):
         parser = reqparse.RequestParser()
@@ -58,7 +58,7 @@ class UserResources(Resource):
         user = Users(None, args['username'], args['email'], args['password'], args['address'], args['telephone'], args['status_admin'])
         db.session.add(user)
         db.session.commit()
-        return marshal(user, Users.response_fields), 200
+        return {"message":"success", "code":200, "user":marshal(user, Users.response_fields)}, 200
 # , { 'Content-Type': 'application/json' }
     @jwt_required
     def put(self, user_id=None):
@@ -81,10 +81,10 @@ class UserResources(Resource):
                 qry.address = args['address']
                 qry.telephone = args['telephone']
                 db.session.commit()
-                return marshal(qry, Users.response_fields), 200, { 'Content-Type': 'application/json' }
-            return {'status':'NOT FOUND'}, 404, { 'Content-Type': 'application/json' }
+                return {"message":"success", "code":200, "user":marshal(qry, Users.response_fields)}, 200, { 'Content-Type': 'application/json' }
+            return {'message':'USER NOT FOUND', "code":404}, 404, { 'Content-Type': 'application/json' }
         else:
-           return {'status':'ACCES DENIED', 'message':'INVALID USER'}, 404, { 'Content-Type': 'application/json' }
+           return {'status':'ACCES DENIED', 'message':'INVALID USER', "code":403}, 403, { 'Content-Type': 'application/json' }
 
     @jwt_required
     def delete(self, user_id=None):
@@ -94,8 +94,9 @@ class UserResources(Resource):
             if qry is not None:
                 db.session.delete(qry)
                 db.session.commit()
-                return "deleted", 200, { 'Content-Type': 'application/json' }
-            return {'status':'NOT FOUND'}, 404, { 'Content-Type': 'application/json' }
+                return {"message":"success", "code":200, "status":"deleted"}, 200, { 'Content-Type': 'application/json' }
+            return {'message':'USER NOT FOUND', "code":404}, 404, { 'Content-Type': 'application/json' }
         else:
-            return {'status':'ACCES DENIED', 'message':'INVALID ADMIN'}, 404, { 'Content-Type': 'application/json' }
+            return {'status':'ACCES DENIED', 'message':'INVALID ADMIN', "code":403}, 403, { 'Content-Type': 'application/json' }
+
 api.add_resource(UserResources,'','/<user_id>')
